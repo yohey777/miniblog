@@ -1,0 +1,9 @@
+.contents.row
+  .container
+  / = form_for @tweet do |f|
+  = form_for @tweet , :"/tweets/#{@tweet.id}" => {:action => 'create'} do |f|
+    %h3
+    投稿する
+    = f.text_area :text, placeholder: '投稿内容', name: "text",style: 'width: 100%;height: 300px;'
+    %input{:type => "submit", :value => "SENT"}/
+

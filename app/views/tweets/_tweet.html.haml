@@ -1,0 +1,11 @@
+.contents
+  .tweetcontent
+    = link_to "詳細", tweet_path(tweet.id), method: :get
+    / - if user_signed_in? && current_user.id == tweet.user_id
+    / = link_to '編集',"/tweets/#{tweet.id}/edit", method: :get
+    - if user_signed_in? && current_user.id == tweet.user_id
+      = link_to '編集',edit_tweet_path(tweet.id), method: :get
+      = link_to '削除',tweet_path(tweet.id), method: :delete
+    %span 投稿者:
+    = tweet.user.name
+    = simple_format(tweet.text)

@@ -1,0 +1,5 @@
+.contents
+  .tweetcontent
+    %span 投稿者:
+    = @tweet.user.name
+    = simple_format(@tweet.text)
